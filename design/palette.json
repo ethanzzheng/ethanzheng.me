@@ -1,0 +1,6 @@
+{
+  "ashGrey":     { "hex": "#CCDAD1", "role": "background" },
+  "stormyTeal":  { "hex": "#28666E", "role": "hover, ambient haze, thumbnail" },
+  "black":       { "hex": "#000000", "role": "text" },
+  "tigerOrange": { "hex": "#F08700", "role": "accent (NYC, email underline, project hover)" }
+}

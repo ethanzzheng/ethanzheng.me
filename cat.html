@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cat — ethan zheng</title>
+    <style>
+      :root {
+        --bg: #0a0a0b;
+        --fg: #d8d5cf;
+        --dim: #55524c;
+      }
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body {
+        background: var(--bg);
+        color: var(--fg);
+        height: 100%;
+        font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 18px;
+        padding: 24px;
+      }
+      #art {
+        display: block;
+        max-width: 100%;
+        max-height: 82vh;
+      }
+      #hint {
+        color: var(--dim);
+        font-size: 11px;
+        letter-spacing: 0.04em;
+        text-align: center;
+        line-height: 1.7;
+        user-select: none;
+      }
+      #hint b { color: #8a867e; font-weight: 600; }
+    </style>
+  </head>
+  <body>
+    <canvas id="art"></canvas>
+    <div id="hint">
+      <b>c</b> color · <b>g</b> green · <b>w</b> mono &nbsp;|&nbsp;
+      <b>[ ]</b> resolution &nbsp;|&nbsp; <b>- =</b> contrast &nbsp;|&nbsp;
+      <b>, .</b> brightness &nbsp;|&nbsp; <b>e</b> edges · <b>v</b> vignette · <b>s</b> whiskers &nbsp;|&nbsp; <b>i</b> invert ramp &nbsp;|&nbsp; <b>0</b> reset
+    </div>
+    <script type="module" src="/src/cat.ts"></script>
+  </body>
+</html>

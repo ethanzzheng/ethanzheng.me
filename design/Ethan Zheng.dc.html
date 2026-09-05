@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+<style>
+  html, body { margin: 0; background: #CCDAD1; color: #000000; font-family: "Instrument Sans", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+  * { box-sizing: border-box; }
+  a { color: #000000; text-decoration: none; }
+  a:hover { color: #28666E; }
+  @keyframes riseIn { from { transform: translateY(110%); } to { transform: translateY(0); } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes drift { 0% { transform: translate(-3%, 3%) scale(1); } 50% { transform: translate(7%, -6%) scale(1.18); } 100% { transform: translate(-3%, 3%) scale(1); } }
+  @keyframes breathe { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-4px) scale(1.012); } }
+</style>
+</helmet>
+
+<div ref="{{ rootRef }}" style="position: relative; min-height: 100vh; display: flex; flex-direction: column; justify-content: space-between; gap: 40px; padding: clamp(20px, 4vw, 44px) clamp(20px, 6vw, 80px);">
+
+  <div style="position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;">
+    <div style="position: absolute; top: -28vh; right: -12vw; width: 72vw; height: 72vw; border-radius: 50%; background: radial-gradient(circle, rgba(40,102,110,0.42), transparent 63%); filter: blur(24px); animation: drift 28s ease-in-out infinite;"></div>
+    <div style="position: absolute; bottom: -38vh; left: -20vw; width: 64vw; height: 64vw; border-radius: 50%; background: radial-gradient(circle, rgba(240,135,0,0.22), transparent 62%); filter: blur(26px); animation: drift 36s ease-in-out infinite reverse;"></div>
+  </div>
+
+  <header style="position: relative; z-index: 1; display: flex; justify-content: space-between; align-items: baseline; gap: 24px; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; opacity: 0; animation: fadeUp 0.8s ease 0.1s forwards;">
+    <span>Ethan Zheng</span>
+    <span ref="{{ clockRef }}" style="color: rgba(0,0,0,0.55); font-variant-numeric: tabular-nums;">New York</span>
+  </header>
+
+  <main style="position: relative; z-index: 1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: clamp(24px, 4vw, 64px); padding: clamp(16px, 4vh, 48px) 0;">
+    <h1 style="margin: 0; flex: 1 1 280px; max-width: 24ch; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: clamp(30px, 4.6vw, 60px); line-height: 1.06; letter-spacing: -0.02em; text-wrap: pretty;">
+      <span style="display: block; overflow: hidden; padding-bottom: 0.05em;"><span style="display: block; transform: translateY(110%); animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 0.2s forwards;">Ethan Zheng —</span></span>
+      <span style="display: block; overflow: hidden; padding-bottom: 0.05em;"><span style="display: block; transform: translateY(110%); animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 0.32s forwards;">product manager,</span></span>
+      <span style="display: block; overflow: hidden; padding-bottom: 0.05em;"><span style="display: block; transform: translateY(110%); animation: riseIn 1s cubic-bezier(0.16,1,0.3,1) 0.44s forwards;"><span style="font-style: italic; color: #F08700;">NYC</span>.</span></span>
+    </h1>
+  </main>
+
+  <footer style="position: relative; z-index: 1; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: clamp(24px, 4vw, 64px); font-size: 14px; opacity: 0; animation: fadeUp 0.9s ease 0.95s forwards;">
+    <nav style="display: flex; flex-direction: column; gap: 6px;">
+      <a href="https://app.llmobserve.com/" target="_blank" rel="noreferrer" data-row="1" data-thumb="Skyline · LLM cost SDK">Skyline</a>
+      <a href="https://www.figma.com/design/DnZygpV7BBvgNZzUJJEZjD/Bilt-Portfolio?node-id=0-1" target="_blank" rel="noreferrer" data-row="1" data-thumb="Bilt · loyalty">Bilt Rewards</a>
+      <a href="https://www.figma.com/design/DpbCJFAzB6Bo8SBaplMCvS/TTS-Portfolio?node-id=0-1" target="_blank" rel="noreferrer" data-row="1" data-thumb="TikTok Shop · checkout">TikTok Shop</a>
+    </nav>
+    <div style="display: flex; flex-wrap: wrap; gap: 22px; align-items: baseline; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;">
+      <a href="mailto:ez2146@stern.nyu.edu" style="border-bottom: 1px solid #F08700; padding-bottom: 2px;">Email</a>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </footer>
+
+  <div ref="{{ cursorRef }}" style="position: fixed; top: 0; left: 0; z-index: 5; width: 200px; height: 132px; margin: -66px 0 0 -100px; pointer-events: none; opacity: 0; transform: scale(0.92); transition: opacity 0.3s ease, transform 0.35s cubic-bezier(0.16,1,0.3,1); overflow: hidden; border-radius: 3px; box-shadow: 0 20px 44px oklch(0.25 0.015 60 / 0.16);">
+    <div style="position: absolute; inset: 0; background: repeating-linear-gradient(135deg, #28666E 0 8px, #2f747d 8px 16px);"></div>
+    <span ref="{{ cursorLabelRef }}" style="position: absolute; inset: auto 10px 10px; font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: 0.06em; text-transform: uppercase; color: #CCDAD1;"></span>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+window.__CAT = window.__CAT || {};
+window.__CAT.OPEN = [
+"        /\\_                                  _/\\",
+"       / \\\\\\\\                              //// \\",
+"      / \\\\\\\\\\\\\\        _.-''''''-._        /////// \\",
+"     /  \\\\\\\\\\\\\\\\\\    ,'   \\  M  /   ',    ///////// \\",
+"     | ///\\\\\\\\\\\\\\'    /     \\/ \\/     \\    '\\\\\\\\\\\\\\\\ |",
+"     |////  \\\\\\\\'    |   _         _   |    '\\\\\\\\  \\\\\\|",
+"    /////    \\\\'     |  / \\   .   / \\  |     '\\\\    \\\\\\\\\\",
+"   //////     '      | ( @ ) ' ' ( @ ) |      '     \\\\\\\\\\\\",
+"   /////   --        |  \\_/  ' '  \\_/  |        --   \\\\\\\\\\",
+"   ////    ==         \\      ' '      /         ==    \\\\\\\\",
+"   |||   ---           '.    /\\    .'           ---   |||",
+"   |||   ===             '. ( . ) .'             ===   |||",
+"   \\\\\\       ,      _  _   \\ | /   _  _      ,       ///",
+"    \\\\\\    ~~~~~~~~ '  '__.-' ' '-.__'  ' ~~~~~~~~    ///",
+"     \\\\\\  ~~~~~~~~~~     '   |   '     ~~~~~~~~~~  ///",
+"      \\\\\\   ~~~~~~~~~         |         ~~~~~~~~~   ///",
+"       \\\\\\.    ~~~~~~          '          ~~~~~~    .///",
+"        '-._                                     _.-'",
+"            '--.._____                 _____..--'",
+"                      '''---------'''",
+];
+
+window.__CAT.BLINK = window.__CAT.OPEN.slice();
+window.__CAT.BLINK[6]  = "    /////    \\\\'     |                 |     '\\\\    \\\\\\\\\\";
+window.__CAT.BLINK[7]  = "   //////     '      |  ___   ' '  ___  |      '     \\\\\\\\\\\\";
+window.__CAT.BLINK[8]  = "   /////   --        |  '-'   ' '  '-'  |        --   \\\\\\\\\\";
+
+window.__CAT.WHISK = window.__CAT.OPEN.slice();
+window.__CAT.WHISK[13] = "    \\\\\\    ~~~~~~~~ '  '__.-' ' '-.__'  ' ~~~~~~~~    ///".replace(/~~~~~~~~ '/, "~~~~~-~~ '").replace(/' ~~~~~~~~/, "' ~~-~~~~~");
+window.__CAT.WHISK[14] = "     \\\\\\  ~~~-~~~~~~     '   |   '     ~~~~~~-~~~  ///";
+window.__CAT.WHISK[15] = "      \\\\\\   ~~~~~~~~-         |         -~~~~~~~~   ///";
+
+window.__CAT.GLYPHS = "/\\|_-~.,'`=:;+*^ ";
+
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.rootRef = React.createRef();
+    this.cursorRef = React.createRef();
+    this.cursorLabelRef = React.createRef();
+    this.clockRef = React.createRef();
+    this.catRef = React.createRef();
+    this.pos = { x: 0, y: 0 };
+    this.target = { x: 0, y: 0 };
+    this.timers = [];
+  }
+
+  esc(s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+  paintCat(frame) {
+    const root = this.rootRef.current;
+    const el = (root && root.isConnected ? root : document).querySelector("[data-cat]");
+    if (!el) return;
+    const html = frame.map((line) => this.esc(line)
+      .replace(/@/g, '<span style="color: oklch(0.55 0.11 245); font-weight: 700;">o</span>')
+      .replace(/ M /g, ' <span style="color: oklch(0.42 0.05 60);">M</span> ')
+    ).join("\n");
+    el.innerHTML = html;
+  }
+
+  decodeCat() {
+    const total = 1400, start = performance.now();
+    const w = Math.max(...window.__CAT.OPEN.map((l) => l.length));
+    const step = () => { try { stepInner(); } catch (e) { this.paintCat(window.__CAT.OPEN); } };
+    const stepInner = () => {
+      const p = Math.min(1, (performance.now() - start) / total);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const frame = window.__CAT.OPEN.map((line, r) => {
+        let out = "";
+        for (let c = 0; c < line.length; c++) {
+          const ch = line[c];
+          const threshold = (r / window.__CAT.OPEN.length) * 0.7 + (c / w) * 0.3;
+          out += (ch === " " || threshold < eased) ? ch : window.__CAT.GLYPHS[Math.floor(Math.random() * window.__CAT.GLYPHS.length)];
+        }
+        return out;
+      });
+      this.paintCat(frame);
+      if (p < 1) this.decodeRaf = requestAnimationFrame(step); else this.scheduleBlink();
+    };
+    this.decodeRaf = requestAnimationFrame(step);
+  }
+
+  scheduleBlink() {
+    const wait = 2600 + Math.random() * 3200;
+    this.timers.push(setTimeout(() => {
+      this.paintCat(window.__CAT.BLINK);
+      this.timers.push(setTimeout(() => {
+        this.paintCat(window.__CAT.OPEN);
+        if (Math.random() < 0.35) this.timers.push(setTimeout(() => { this.paintCat(window.__CAT.BLINK); this.timers.push(setTimeout(() => this.paintCat(window.__CAT.OPEN), 110)); }, 180));
+        if (Math.random() < 0.5) this.timers.push(setTimeout(() => { this.paintCat(window.__CAT.WHISK); this.timers.push(setTimeout(() => this.paintCat(window.__CAT.OPEN), 160)); }, 900));
+        this.scheduleBlink();
+      }, 130));
+    }, wait));
+  }
+
+  componentDidMount() {
+    const root = this.rootRef.current;
+    if (!root) return;
+
+
+    root.querySelectorAll("[data-row]").forEach((row) => {
+      row.addEventListener("mouseenter", () => {
+        if (this.cursorLabelRef.current) this.cursorLabelRef.current.textContent = row.dataset.thumb || "";
+        const c = this.cursorRef.current;
+        if (c) { c.style.opacity = "1"; c.style.transform = "scale(1)"; }
+        row.style.transition = "transform 0.45s cubic-bezier(0.16,1,0.3,1), color 0.3s ease";
+        row.style.transform = "translateX(10px)";
+        row.style.color = "#F08700";
+      });
+      row.addEventListener("mouseleave", () => {
+        const c = this.cursorRef.current;
+        if (c) { c.style.opacity = "0"; c.style.transform = "scale(0.92)"; }
+        row.style.transform = "translateX(0)";
+        row.style.color = "";
+      });
+    });
+
+    this.onMove = (e) => { this.target.x = e.clientX; this.target.y = e.clientY; };
+    window.addEventListener("mousemove", this.onMove, { passive: true });
+
+    const tick = () => {
+      this.pos.x += (this.target.x - this.pos.x) * 0.12;
+      this.pos.y += (this.target.y - this.pos.y) * 0.12;
+      const el = this.cursorRef.current;
+      if (el) { el.style.left = this.pos.x + "px"; el.style.top = this.pos.y + "px"; }
+      this.raf = requestAnimationFrame(tick);
+    };
+    this.raf = requestAnimationFrame(tick);
+
+    const clock = () => {
+      const el = this.clockRef.current;
+      if (!el) return;
+      const t = new Date().toLocaleTimeString("en-US", { timeZone: "America/New_York", hour: "2-digit", minute: "2-digit", hour12: false });
+      el.textContent = "New York · " + t;
+    };
+    clock();
+    this.clockTimer = setInterval(clock, 15000);
+  }
+
+  componentWillUnmount() {
+    if (this.raf) cancelAnimationFrame(this.raf);
+    if (this.decodeRaf) cancelAnimationFrame(this.decodeRaf);
+    if (this.clockTimer) clearInterval(this.clockTimer);
+    this.timers.forEach(clearTimeout);
+    window.removeEventListener("mousemove", this.onMove);
+  }
+
+  renderVals() {
+    return {
+      rootRef: this.rootRef,
+      cursorRef: this.cursorRef,
+      cursorLabelRef: this.cursorLabelRef,
+      clockRef: this.clockRef,
+      catRef: this.catRef,
+    };
+  }
+}
+</script>
+</body>
+</html>

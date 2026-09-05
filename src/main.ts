@@ -21,7 +21,7 @@ let introRunning = false;
 
 const art = mountAscii(
   catCanvas,
-  "/cat.jpg",
+  "cat.jpg",
   { ...PAPER_DEFAULTS },
   () => ({
     maxW: Math.min(window.innerWidth * 0.42, 560),

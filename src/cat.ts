@@ -2,7 +2,7 @@
 import { DARK_DEFAULTS, mountAscii, type AsciiParams } from "./ascii";
 
 const canvas = document.getElementById("art") as HTMLCanvasElement;
-let art = mountAscii(canvas, "/cat.jpg", { ...DARK_DEFAULTS });
+let art = mountAscii(canvas, "cat.jpg", { ...DARK_DEFAULTS });
 
 window.addEventListener("keydown", (e) => {
   const P: AsciiParams = art.params;

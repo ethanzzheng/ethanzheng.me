@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "ethanzheng-me",
+  "compatibility_date": "2026-09-01",
+  // static site: serve the Vite build output, no worker script needed
+  "assets": {
+    "directory": "./dist",
+    "not_found_handling": "404-page"
+  },
+  // custom domain — activates once ethanzheng.me is a zone in your
+  // Cloudflare account (nameservers switched from current registrar setup)
+  "routes": [
+    { "pattern": "ethanzheng.me", "custom_domain": true },
+    { "pattern": "www.ethanzheng.me", "custom_domain": true }
+  ]
+}

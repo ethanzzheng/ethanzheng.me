@@ -303,19 +303,19 @@ gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
 
 const U = (n: string) => gl.getUniformLocation(prog, n);
 
-// colours (low -> high): #FFFFFF, #F5F5F5, #1B6AA7, #57D2F4 (+4 unused)
+// LOCAL EXPERIMENT colourway (low -> high): #001219, #005F73, #94D2BD, #E9D8A6
 gl.uniform3fv(U("u_colors"), new Float32Array([
-  1.000, 1.000, 1.000,
-  0.961, 0.961, 0.961,
-  0.106, 0.416, 0.655,
-  0.341, 0.824, 0.957,
+  0.000, 0.071, 0.098,
+  0.000, 0.373, 0.451,
+  0.580, 0.824, 0.741,
+  0.914, 0.847, 0.651,
   0, 0, 0,  0, 0, 0,  0, 0, 0,  0, 0, 0,
 ]));
-gl.uniform4f(U("u_shape"), 1.30, 0.56, 0.67, 0.19);
-gl.uniform4f(U("u_surface"), 2.02, 1.17, 0.00, 1.00);
-gl.uniform4f(U("u_finish"), 0.00, 0.15, 0.007, 0.10);
-gl.uniform4f(U("u_transform"), 5069.0, 2.72, 0.15, 0.0);
-gl.uniform4f(U("u_space"), 0.09, 0.15, 0.0, 0.0);
+gl.uniform4f(U("u_shape"), 2.00, 0.54, 0.47, 0.04);
+gl.uniform4f(U("u_surface"), 1.54, 1.16, 0.00, 1.00);
+gl.uniform4f(U("u_finish"), 0.00, 0.21, 0.002, 0.10);
+gl.uniform4f(U("u_transform"), 4012.0, 5.65, 0.12, 0.0);
+gl.uniform4f(U("u_space"), 0.11, -0.19, 0.0, 0.0);
 gl.uniform4f(U("u_cursor"), 0.0, 2.0, 0.65, 0.46); // cursor: off
 const uScene = U("u_scene");
 
@@ -335,7 +335,7 @@ function frame() {
   gl.uniform4f(
     uScene,
     canvas.width, canvas.height,
-    ((performance.now() - t0) / 1000) * -1.37,
+    ((performance.now() - t0) / 1000) * -0.73,
     4.0,
   );
   gl.drawArrays(gl.TRIANGLES, 0, 3);

@@ -78,11 +78,11 @@
 
       main {
         position: relative; z-index: 1;
-        display: flex; flex-wrap: wrap; align-items: center; justify-content: center;
-        gap: clamp(28px, 4vw, 64px);
+        display: flex; flex-wrap: wrap; align-items: flex-start; justify-content: center;
+        gap: clamp(32px, 3.6vw, 60px);
         padding: clamp(16px, 4vh, 48px) 0;
       }
-      .intro { flex: 1 1 300px; max-width: 52ch; }
+      .intro { flex: 0 1 auto; max-width: 46ch; }
       h1 {
         margin: 0; max-width: 24ch;
         font-family: "Geist", "Instrument Sans", Helvetica, sans-serif;
@@ -135,16 +135,18 @@
 
       .media {
         flex: 0 1 auto;
+        margin-top: 10px; /* optical: h1 leading — box line meets the cap height */
+        border: 1px solid rgba(242, 239, 230, 0.55);
+        padding: clamp(16px, 1.8vw, 26px);
         display: flex; flex-direction: column; align-items: center; gap: 12px;
         opacity: 0; animation: fadeUp 1.1s ease 0.65s forwards;
       }
       .media-card { border: 0; background: none; padding: 0; }
       .media-card video {
         display: block;
-        width: min(29vw, 390px);
+        width: min(22vw, 300px);
         aspect-ratio: 1;
         height: auto;
-        border-radius: 14px;
         box-shadow: 0 24px 64px rgba(0, 4, 8, 0.45);
       }
       .media-name {

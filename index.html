@@ -135,9 +135,9 @@
 
       .media {
         flex: 0 1 auto;
-        margin-top: 10px; /* optical: h1 leading — box line meets the cap height */
-        border: 1px solid rgba(242, 239, 230, 0.55);
-        padding: clamp(16px, 1.8vw, 26px);
+        align-self: center; /* whole component (image top -> dots bottom)
+                               centered on h1 top -> last interest bottom */
+        margin-top: 10px;
         display: flex; flex-direction: column; align-items: center; gap: 12px;
         opacity: 0; animation: fadeUp 1.1s ease 0.65s forwards;
       }
@@ -224,6 +224,14 @@
         color: #ccdad1;
       }
       @media (hover: none) { .cursor-card { display: none; } }
+
+      /* mobile portrait: carousel stacks below the copy at a real size */
+      @media (max-width: 760px) {
+        .intro { max-width: 100%; }
+        .media-card video { width: min(82vw, 380px); }
+        .media { margin-top: 4px; }
+        main { gap: 36px; }
+      }
 
       @media (prefers-reduced-motion: reduce) {
         .bg .teal, .bg .orange { animation: none; }

@@ -1,5 +1,8 @@
 // main site: clock, cursor-follow project card, and the animated ascii cat
 // (letters fly in from all directions on load; the cat blinks now and then)
+// animated shader background; dynamic import so a webgl failure can never
+// take down the rest of the site (falls back to the plain background).
+import("./shader").catch(() => {});
 import {
   HEAD_CROP,
   mountAscii,

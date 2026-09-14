@@ -32,6 +32,15 @@
         100% { transform: translate(-3%, 3%) scale(1); }
       }
 
+      /* soft white veil over the shader: strong where the text lives,
+         fading toward the cat so the mesh drift stays visible */
+      .veil {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background:
+          linear-gradient(180deg, rgba(255,255,255,0) 72%, rgba(255,255,255,0.5) 100%),
+          linear-gradient(100deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.4) 52%, rgba(255,255,255,0) 82%);
+      }
+
       .root {
         position: relative;
         min-height: 100vh;
@@ -126,10 +135,18 @@
 
       .cat {
         flex: 0 1 auto;
+        position: relative;
         display: flex; justify-content: center;
         opacity: 0; animation: fadeUp 1.1s ease 0.65s forwards;
       }
       .cat canvas { display: block; cursor: grab; transform-origin: 50% 82%; }
+      /* soft glow keeps the ink cutout readable over drifting blue blobs */
+      .cat::before {
+        content: "";
+        position: absolute; inset: -6%;
+        z-index: -1;
+        background: radial-gradient(ellipse 58% 54% at 50% 46%, rgba(255,255,255,0.6), rgba(255,255,255,0) 72%);
+      }
 
       footer {
         position: relative; z-index: 1;
@@ -182,6 +199,7 @@
   <body>
     <div class="root">
       <!-- ambient haze disabled for now — restore by uncommenting
+      <div class="veil" aria-hidden="true"></div>
       <div class="bg" aria-hidden="true">
         <div class="teal"></div>
         <div class="orange"></div>

@@ -201,7 +201,10 @@
         font-family: "JetBrains Mono", monospace;
         font-size: 11px; letter-spacing: 0.06em; text-transform: uppercase;
       }
-      .contacts .email { border-bottom: 1px solid #f08700; padding-bottom: 2px; }
+      .contacts .email { border-bottom: 1px solid transparent; padding-bottom: 2px; }
+      .contacts .email:hover,
+      .contacts .email:focus-visible,
+      .contacts .email:active { border-bottom-color: #f08700; }
 
       .cursor-card {
         position: fixed; top: 0; left: 0; z-index: 5;

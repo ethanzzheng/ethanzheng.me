@@ -1,7 +1,7 @@
 // media card: loops animated clips, navigated with morphing page dots
 // (vanilla port of 21st.dev MorphingPageDots: active dot stretches to a
 // pill with a ripple; chevrons disable at the ends, no wrap)
-const CLIPS = ["megatron", "shanghai", "tokyo", "kona", "reykjavik", "san_jose"];
+const CLIPS = ["reykjavik", "megatron", "shanghai", "tokyo", "kona", "san_jose"];
 
 const video = document.getElementById("media-video") as HTMLVideoElement;
 const name = document.getElementById("media-name")!;
